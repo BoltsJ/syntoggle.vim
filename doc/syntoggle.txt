@@ -1,0 +1,55 @@
+*syntoggle.txt* Per buffer syntax highlight toggling 
+
+Author: Joseph R. Nosie
+License: GPLv3+ {{{
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+}}}
+
+INTRODUCTION						*syntoggle*
+
+This plugin provides manually controlled per buffer |syntax| highlighting.
+Setting syntax manual allows setting syntax highlighting on a per buffer
+basis, but does not remember the setting when changing buffers. 
+
+MAPPINGS						*syntoggle-mappings*
+
+					*<plug>SynToggle*
+					*:SyntaxToggle*
+:SyntaxToggle		Toggle syntax highlighting for the current buffer.
+
+					*<plug>SynOn*
+					*:SyntaxOn*
+:SyntaxOn		Enable syntax highlighting for the current buffer.
+
+					*<plug>SynOff*
+					*:SyntaxOff*
+:SyntaxOff		Disable syntax highlighting for the current buffer.
+
+OPTIONS							*syntoggle-options*
+
+*g:syntoggle_syn_on*
+  Set to 1 to enable syntax highlighting by default.
+
+  Default value: 0
+
+*g:syntoggle_ft_override*
+  List of filetypes to use opposite behavior for highlighting. Filetypes in
+  the list will have syntax highlighting enabled when |g:syntoggle_syn_on| is
+  set to disable and vice versa.
+
+  Default value: []
+
+ vim:tw=78:ts=8:ft=help:norl:
