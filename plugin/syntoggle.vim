@@ -1,6 +1,6 @@
 " vim-syntoggle - Per buffer syntax highlighting
 " Maintainer: Joseph R. Nosie
-" Version:    0.2
+" Version:    0.3
 
 if exists('g:loaded_syntoggle')
   finish
@@ -34,11 +34,7 @@ function! s:syn_set(...)
     let b:syntax_on = a:1
   endif
   if !exists('b:syntax_on')
-    if index(g:syntoggle_ft_override, &ft) < 0
-      let b:syntax_on = g:syntoggle_syn_on
-    else
-      let b:syntax_on = !g:syntoggle_syn_on
-    endif
+    call s:buf_set()
   endif
   if b:syntax_on
     set syntax=ON
@@ -47,9 +43,19 @@ function! s:syn_set(...)
   endif
 endfunction
 
+function! s:buf_set()
+  if index(g:syntoggle_ft_override, &ft) < 0
+    let b:syntax_on = g:syntoggle_syn_on
+  else
+    let b:syntax_on = !g:syntoggle_syn_on
+  endif
+endfunction
+
 augroup synToggle
 au!
 autocmd BufEnter * call s:syn_set()
+autocmd FileType netrw,nerdtree,dirvish
+  \ call s:buf_set() | call s:syn_set()
 augroup END
 
 " vim: sw=2 ts=2 sts=2 et:
