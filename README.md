@@ -22,10 +22,18 @@ See `:h syntoggle` for configuration and mappings.
 [vim-plug](https://github.com/junegunn/vim-plug):
 
 ```vim
-Plug 'https://gitlab.com/BoltsJ/syntoggle.vim'
+Plug 'BoltsJ/syntoggle.vim'
 ```
 
 or just copy `doc/` and `plugin/` into your vim folder.
+
+## Troubleshooting
+
+[Bugtracker](https://gitlab.com/BoltsJ/syntoggle.vim/issues)
+
+- If syntax toggling is not working as expected, it may be necessary to place
+  `syntax manual` in your `.vimrc`/`init.vim`. The plugin attempts to set this,
+  but if another plugin could override it.
 
 ## License
 This program is free software: you can redistribute it and/or modify
